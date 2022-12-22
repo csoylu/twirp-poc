@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package kampus.twirp.passport;
+option go_package = "passport";
+
+// Haberdasher service makes hats for clients.
+service PassportService
+{
+    rpc AddUser(User) returns (AddUserResponse);
+    rpc DelUser(User) returns (DelUserResponse);
+}
+
+message AddUserResponse
+{
+    int32 code = 1;
+    string msg = 2;
+    optional User user = 3;
+}
+
+message DelUserResponse
+{
+    int32 code = 1;
+    string msg = 2;
+}
+
+message User
+{
+    string id = 1;
+    string username = 2;
+    string email = 3;
+}
